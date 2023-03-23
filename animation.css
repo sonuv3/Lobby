@@ -1,0 +1,22 @@
+.hidden{
+    opacity: 1;
+    transition: 700ms;
+    filter: blur(10px);
+    transform: translateY(-12rem);
+}
+.show{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+}
+.noslide{
+        opacity: 1;
+        transition: 700ms;
+        filter: blur(10px);
+        transform: translateX(-12rem);
+}
+.slide{
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0px);
+}

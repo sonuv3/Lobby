@@ -1,0 +1,21 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;600&family=Roboto:wght@100&family=Shrikhand&display=swap');
+
+:root{
+    --blue:#2148BF;
+    --blue1:#16348C;
+    --blue2:#1C3FA6;
+    --blue3:#142559;
+    --black:#403E3F;
+    --font1: 'Fira Sans', sans-serif;
+    --font2:'Roboto', sans-serif,'Shrikhand', cursive;
+}
+@media(max-width:1500px){
+  html{
+    font-size: 70%;
+    width: 70%;
+    height: 70%;
+    gap: 50%;
+  }
+}
+

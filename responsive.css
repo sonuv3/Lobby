@@ -1,0 +1,47 @@
+@media(max-width:600px){
+    nav{
+        display: none;
+    }
+    .active{
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0px;
+        gap: 0;
+        flex-direction: column;
+
+    }
+    ul{
+        flex-direction: column;
+        gap:10rem;
+    }
+    header{
+        flex-direction: column;
+    }
+    .filter{
+        flex-direction: column;
+    }
+    .search>input{
+        width: 70%;
+    }
+    .a-wrapper{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .about-wrapper{
+        width: 70%;
+    }
+    footer{
+        width: 100vw;
+        padding: 0;
+        gap: 1rem;
+        font-size: 50%;
+        
+        overflow: hidden;
+    }
+    .footer-heading{
+        width: 5rem;
+        font-size: .5rem;
+        overflow: hidden;
+    }
+}
