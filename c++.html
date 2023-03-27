@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ practicals</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animation.css">
+    
+</head>
+<body>
+ 
+    <div><pre style="width: 100vw;">1a. Write a C++ program to create simple calculator 
+        #include<iostream.h> 
+        int main() 
+        { 
+        float numOne, numTwo, res; 
+        int choice; 
+        do 
+        { 
+        cout<<"1. Addition\n"; 
+        cout<<"2. Subtraction\n"; 
+        cout<<"3. Multiplication\n"; 
+        cout<<"4. Division\n"; 
+        cout<<"5. Exit\n\n"; 
+        cout<<"Enter Your Choice(1-5): "; 
+        cin>>choice; 
+        if(choice>=1 && choice<=4) 
+        { 
+        cout<<"\nEnter any two Numbers: "; 
+        cin>>numOne>>numTwo; 
+        } 
+        switch(choice) 
+        { 
+        case 1: 
+        res = numOne+numTwo; 
+        cout<<"\nResult = "<<res; 
+        break; 
+        case 2: 
+        res = numOne-numTwo; 
+        cout<<"\nResult = "<<res; 
+        break; 
+        case 3: 
+        res = numOne*numTwo; 
+        cout<<"\nResult = "<<res; 
+        break; 
+        case 4: 
+        res = numOne/numTwo; 
+        cout<<"\nResult = "<<res; 
+        break; 
+        case 5: 
+        return 0; 
+        default: 
+        cout<<"\nWrong Choice!"; 
+        break; 
+        } 
+        cout<<"\n------------------------\n"; 
+        }while(choice!=5); 
+        cout<<endl; 
+        return 0;
+        } 
+        1c Write a C++ program to find the volume of square,cone and rectangle. 
+        #include <iostream> 
+        void cube_volume() 
+        { 
+        int side; 
+        float vol_of_a_cube; 
+        cout<<"Enter the side of a cube :"; 
+        cin>>side; 
+        vol_of_a_cube=(side*side*side); 
+        cout<<"The volume of a cube is :"<< 
+        vol_of_a_cube << endl; 
+        cout << endl; 
+        } 
+        void cone_volume() 
+        { 
+        int radius,height; 
+        float vol_of_a_cone; 
+        cout<<"Enter the radius of a cone :"; 
+        cin>>radius; 
+        cout<<"Enter the height of a cone :"; 
+        cin>>height; 
+        vol_of_a_cone=(3.14*radius*radius*(height/3)); cout<<"The volume of a cone is :"<< 
+        vol_of_a_cone << endl; 
+        cout << endl; 
+        } 
+        void rectangle_volume() 
+        { 
+        int l,w,h; 
+        float vol_of_a_rect; 
+        cout<<"Enter the length ,width,height of a rectangle:"; 
+        cin>>l>>w>>h; 
+        vol_of_a_cube=(l*w*h); 
+        cout<<"The volume of a rectangle is :"<< vol_of_a_rect << endl;
+        cout << endl; 
+        } 
+        int main(){ 
+        cube_volume(); 
+        cone_volume(); 
+        rectangle_volume(); 
+        } 
+        2 b C++ Program to find Sum of Even and Odd Numbers 
+        #include<iostream.h> 
+        int main() 
+        { 
+        int number, maximum, evenSum = 0, oddSum = 0; 
+        cout << "\nPlease Enter the Maximum Limit for Even & Odd Numbers = "; cin >> maximum; 
+        for(number = 1; number <= maximum; number++) 
+        { 
+        if ( number % 2 == 0 ) 
+        { 
+        evenSum = evenSum + number; 
+        } 
+        else 
+        { 
+        oddSum = oddSum + number; 
+        } 
+        } 
+        cout << "\nThe Sum of All Even Numbers upto " << maximum << " = " << evenSum; cout << "\nThe Sum of All Odd Numbers upto " << maximum << " = " << oddSum; 
+        return 0; 
+        } 
+        2 c C++ program to print all prime numbers between 1 to N 
+        #include <iostream.h> 
+        int main() { 
+        int num, i, upto; 
+        // Take input from user
+        cout << "Find prime numbers upto : "; 
+        cin >> upto; 
+        cout << endl << "All prime numbers upto " << upto << " are : " << endl; for(num = 2; num <= upto; num++) 
+        { 
+        for(i = 2; i <= (num / 2); i++) 
+        { 
+        if(num % i == 0) 
+        { 
+        i = num; 
+        break; 
+        } 
+        } 
+        // If the number is prime then print it. 
+        if(i != num) { 
+        cout << num << " "; 
+        } 
+        } 
+        return 0; 
+        } 
+        3 a /*C++ program to create class for a student.*/ 
+        #include <iostream.h> 
+        class student 
+        { 
+        private: 
+        char name[30]; 
+        int rollNo; 
+        int total;
+        float perc; 
+        public: 
+        //member function to get student's details 
+        void getDetails(void); 
+        //member function to print student's details 
+        void putDetails(void); 
+        }; 
+        //member function definition, outside of the class 
+        void student::getDetails(void){ 
+        cout << "Enter name: " ; 
+        cin >> name; 
+        cout << "Enter roll number: "; 
+        cin >> rollNo; 
+        cout << "Enter total marks outof 500: "; 
+        cin >> total; 
+        perc=(float)total/500*100; 
+        } 
+        //member function definition, outside of the class 
+        void student::putDetails(void){ 
+        cout << "Student details:\n"; 
+        cout << "Name:"<< name << ",Roll Number:" << rollNo << ",Total:" << total << ",Percentage:" << perc; 
+        } 
+        int main() 
+        { 
+        student std; //object creation
+        std.getDetails(); 
+        std.putDetails(); 
+        return 0; 
+        } 
+        //3C// 
+        #include <iostream.h> 
+        class test { 
+        int objNo; 
+        static int objCnt; 
+        public: 
+        test() 
+        { 
+        objNo = ++objCnt; 
+        } 
+        ~test() 
+        { 
+        --objCnt; 
+        } 
+        void printObjNumber(void) 
+        { 
+        cout << "object number :" << objNo << "\n"; }
+        static void printObjCount(void) 
+        { 
+        cout << "count:" << objCnt<< "\n"; 
+        } 
+        }; 
+        int test::objCnt; 
+        int main() 
+        { 
+        test t1, t2; 
+        test::printObjCount(); 
+        test t3; 
+        test::printObjCount(); 
+        t1.printObjNumber(); 
+        t2.printObjNumber(); 
+        t3.printObjNumber(); 
+        return 0; 
+        } 
+        3d Write a program to find Maximum of two numbers using friend function. 
+        #include<iostream> 
+        using namespace std;
+        class one 
+        { 
+        int a; 
+        public: 
+        friend int cal(one a); 
+        }; 
+        class two 
+        { 
+        int b; 
+        public: 
+        friend int cal(one a,two b); }; 
+        cal(int f,int g) 
+        { 
+        int ans=(x.a>y.b)?x.a:y.b; } 
+        int main() 
+        { 
+        one x; 
+        two y; 
+        cal(10,20);
+        } 
+        3e Copy Constructor 
+        #include<iostream.h> 
+        class code 
+        { 
+        int id; 
+        public: 
+        code(){} 
+        code(int a){ id=a; } 
+        code(code &x) 
+        { 
+        id=x.id; 
+        } 
+        void display() 
+        { 
+        cout<<id; 
+        } 
+        }; 
+        int main() 
+        { 
+        code A(100); 
+        code B(A); //copy constructor called
+        code C=A; //copy constructor called again 
+        cout<<”\n id of A:”;A.display(); 
+        cout<<”\n id of B:”;B.display(); 
+        cout<<”\n id of C:”;C.display(); 
+        return 0; 
+        } 
+        4e Single Inheritance 
+        #include <iostream> 
+        using namespace std; 
+        class base //single base class 
+        { 
+        public: 
+        int x; 
+        void getdata() 
+        { 
+        cout << "Enter the value of x = "; cin >> x; 
+        } 
+        }; 
+        class derive : public base //single derived class 
+        { 
+        private: 
+        int y;
+        public: 
+        void readdata() 
+        { 
+        cout << "Enter the value of y = "; cin >> y; 
+        } 
+        void product() 
+        { 
+        cout << "Product = " << x * y; 
+        } 
+        }; 
+        int main() 
+        { 
+        derive a; //object of derived class 
+        a.getdata(); 
+        a.readdata(); 
+        a.product(); 
+        return 0; 
+        } 
+        //4f Multiple Inheitance 
+        #include<iostream> 
+        using namespace std;
+        class A 
+        { 
+        public: 
+        int x; 
+        void getx() 
+        { 
+        cout << "enter value of x: "; cin >> x; 
+        } 
+        }; 
+        class B 
+        { 
+        public: 
+        int y; 
+        void gety() 
+        { 
+        cout << "enter value of y: "; cin >> y; 
+        } 
+        }; 
+        class C : public A, public B //C is derived from class A and class B { 
+        public: 
+        void sum()
+        { 
+        cout << "Sum = " << x + y; 
+        } 
+        }; 
+        int main() 
+        { 
+        C obj1; //object of derived class C 
+        obj1.getx(); 
+        obj1.gety(); 
+        obj1.sum(); 
+        return 0; 
+        } //end of program 
+        //5 a 
+        #include<iostream.h> 
+        class student 
+        { 
+        protected: 
+        int roll_number; 
+        public: 
+        void get_number(int a) 
+        { 
+        roll_number = a;
+        } 
+        void put_number(void) 
+        { 
+        cout<<"Roll No:"<<roll_number<<"\n"; 
+        } 
+        }; 
+        class test : public student 
+        { 
+        protected: 
+        float part1, part2; 
+        public: 
+        void get_marks(float x, float y) 
+        { 
+        part1 = x; 
+        part2 = y; 
+        } 
+        void put_marks(void) 
+        { 
+        cout<<"Marks obtained"<<"\n"<<"part1 ="<<part1<<"\n"<<"part2 ="<<part2<<"\n"; 
+        } 
+        }; 
+        class sports 
+        { 
+        protected: 
+        float score; 
+        public: 
+        void get_score(float s)
+        { 
+        score = s; 
+        } 
+        void put_score(void) 
+        { 
+        cout<<"Sports wt:"<<score<<"\n\n"; } 
+        }; 
+        class result : public test, public sports { 
+        float total; 
+        public: 
+        void display(void); 
+        }; 
+        void result ::display(void) 
+        { 
+        total = part1 + part2 + score; put_number(); 
+        put_marks(); 
+        put_score(); 
+        cout<<"Total Score:"<<total<<"\n"; } 
+        int main() 
+        { 
+        result student_1; 
+        student_1.get_number (1234); student_1.get_marks (27.5, 33.0);
+        student_1.get_score (6.0); 
+        student_1.display (); 
+        return 0; 
+        } 
+        //7a Virtual function 
+        #include<iostream> 
+        using namespace std; 
+        class Fruit 
+        { 
+        public: 
+        void virtual display() 
+        { 
+        cout<<"\nFrom Base class Fruit"; 
+        } 
+        }; 
+        class Orange:public Fruit 
+        { 
+        public: 
+        void display() 
+        { 
+        cout<<"\nFrom Derived class Orange."; 
+        } 
+        }; 
+        class Banana:public Fruit 
+        {
+        void display() 
+        { 
+        cout<<"\nFrom Derived class Banana."; 
+        } 
+        }; 
+        int main() 
+        { 
+        Fruit *pfru; 
+        Fruit fru; 
+        Orange og; 
+        Banana bn; 
+        pfru=&fru; 
+        pfru->display(); 
+        pfru=&og; 
+        pfru->display(); 
+        pfru=&bn; 
+        pfru->display(); 
+        return 0; 
+        } 
+        //8b 
+        #include <iostream.h> 
+        #include <conio.h> 
+        void main( ) 
+        { 
+        clrscr( );
+        cout<<“================================”<<endl; cout<<“THE FIRST FORMATTED FLAG”<<endl; 
+        cout<<“================================”<<endl; cout.fill(‘+’); 
+        cout.width(10); 
+        cout.setf(ios : :internal, ios : :adjustfield); 
+        cout<<−7.89<<endl; 
+        cout<<“================================”<<endl; cout<<“SECOND FORMATTED FLAG”<<endl; 
+        cout<<“================================”<<endl; cout.fill(‘X’); 
+        cout.precision(3); 
+        cout.width(15); 
+        cout.setf(ios : :internal,ios : :adjustfield); 
+        cout.setf(ios : :scientific,ios : :floatfield); 
+        cout<<−32.43567<<endl; 
+        cout<<endl<<“================================”<<endl; getch( ); 
+        } 
+        //8d 
+        #include<iostream.h> 
+        int main() 
+        { 
+        char ch, sourceFile[20], targetFile[20];
+        FILE *fs, *ft; 
+        cout<<"Enter the Name of Source File: "; cin>>sourceFile; 
+        fs = fopen(sourceFile, "r"); 
+        if(fs == NULL) 
+        { 
+        cout<<"\nError Occurred!"; 
+        return 0; 
+        } 
+        cout<<"\nEnter the Name of Target File: "; cin>>targetFile; 
+        ft = fopen(targetFile, "w"); 
+        if(ft == NULL) 
+        { 
+        cout<<"\nError Occurred!"; 
+        return 0; 
+        } 
+        ch = fgetc(fs); 
+        while(ch != EOF) 
+        { 
+        fputc(ch, ft); 
+        ch = fgetc(fs); 
+        } 
+        cout<<"\nFile copied successfully."; fclose(fs); 
+        fclose(ft); 
+        cout<<endl;
+        return 0; 
+        } 
+        //9 a 
+        #include<iostream> 
+        using namespace std; 
+        int main() 
+        { 
+        int a=3; 
+        try 
+        { 
+        if(a==1) 
+        throw a; //throwing integer exception 
+        else if(a==3) 
+        throw 'A'; //throwing character exception 
+        else if(a==5) 
+        throw 3.5; //throwing float exception
+        } 
+        catch(int a) 
+        { 
+        cout<<"\nInteger exception caught."; 
+        } 
+        catch(char ch) 
+        { 
+        cout<<"\nCharacter exception caught."; 
+        } 
+        catch(double d) 
+        { 
+        cout<<"\nDouble exception caught."; 
+        } 
+        cout<<"\nEnd of program."; 
+        return 0; 
+        } 
+        //10 a 
+        #include<iostream> 
+        #include<stdio.h> 
+        #include<conio.h>
+        using namespace std; 
+        // Template Declaration 
+        template<class T> 
+        // Template Class 
+        class TClassMax { 
+        T x, y; 
+        public: 
+        TClassMax() { 
+        } 
+        TClassMax(T first, T second) { x = first; 
+        y = second; 
+        } 
+        T getMaximun() { 
+        if (x > y) 
+        return x; 
+        else 
+        return y; 
+        }
+        }; 
+        int main() { 
+        TClassMax <int> iMax; // (100, 75); 
+        int a, b, i; 
+        TClassMax <float> fMax; // (90.78, 750.98); 
+        float c, d, j; 
+        cout << "Class Template Programs : Generic Programming : Get Maximum Number \n"; 
+        cout << "Enter A,B values(integer):"; 
+        cin >> a>>b; 
+        iMax = TClassMax<int>(a, b); 
+        i = iMax.getMaximun(); 
+        cout << "Result Max Int : " << i; 
+        cout << "\n\nEnter C,D values(float):"; 
+        cin >> c>>d; 
+        fMax = TClassMax<float>(c, d); 
+        j = fMax.getMaximun(); 
+        cout << "Result Max Float : " << j; 
+        getch(); 
+        return 0; 
+        }
+        
+
+    </pre></div>
+</body>
+<script src="index.js"></script>
+</html>

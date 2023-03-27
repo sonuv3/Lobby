@@ -32,9 +32,6 @@ const observerx=new IntersectionObserver((entries)=>{
 const xaxix = document.querySelectorAll(".noslide");
 xaxix.forEach((el)=>observerx.observe(el));
 
-const hamburger=querySelector(".ham-btn");
-const ham = querySelector(".hamburger");
-
-hamburger.addEventListener("click",()=>{
-    ham.target.classList.toggle('active');
-});
+const hamburger=querySelectorAll(".ham-btn");
+const ham = querySelectorAll(".hamburger");
+const anchor=querySelectorAll(a);

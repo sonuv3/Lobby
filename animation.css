@@ -1,7 +1,7 @@
 .hidden{
     opacity: 1;
-    transition: 700ms;
-    filter: blur(10px);
+    transition: 2s;
+    filter: blur(15px);
     transform: translateY(-12rem);
 }
 .show{

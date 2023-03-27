@@ -17,17 +17,29 @@
 </head>
 <body>
     <div class=" flex nav">
-        <button class="ham-btn" >hamburger</button>
+        <button class="ham-btn" onclick="document.querySelector('.hamburger').classList.toggle('active')" >
+            
+        <div class="ham">
 
+        </div>
+        <div class="ham">
+
+        </div>
+        <div class="ham"></div></button>
+        
         <nav style="gap:5rem" class="hamburger">
+
             <ul class="flex list">
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#Home">About</a></li>
                 <li><a href="#Home">CONTACT</a></li>
                 <li><a href="#Home">HELP</a></li>
             </ul>
-            <a href="#login"><button>Login/Signup</button></a>
+            <a href="#login" class="login"><button onclick="document.querySelector('.hamburger').classList.remove('active')">Login/Signup</button></a>
+            
         </nav>
+        
+
     </div>
     <header class="header">
        
@@ -95,7 +107,7 @@
             <tr>
                 <td>1</td>
                 <td> OOPS WITH C++</td>
-                <td><a href="#">VISIT FORWARD</a></td>
+                <td><a href="c++.html">VISIT FORWARD</a></td>
             </tr>
             <tr>
                 
