@@ -3,6 +3,9 @@
     padding: 0;
     scroll-behavior: smooth;
 }
+body{
+    width: 100vw;
+}
 .math {
   width: 100vw;
 
@@ -12,6 +15,11 @@
   gap: 5rem;
   align-items: center;
   justify-content: center;
+}
+pre{
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow-wrap: normal;
 }
 .maths-nevigation {
   width: 100%;
@@ -42,6 +50,8 @@
 }
 .practicals-maths>div{
     display: flex;
+    padding: 10rem;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -53,6 +63,19 @@
 }
 .practicalinfo{
     font-size: 18px;
+
+}
+@media (max-width:600px){
+    .practicalinfo{
+        font-size: 12px;
+    
+    }
+ 
+    html{
+        padding: 50%;
+        height: 50%;
+        font-size: 50%;
+    }
 
 }
 
