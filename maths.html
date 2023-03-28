@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATHS PRACTICAL</title>
+    <link rel="stylesheet" href="maths.css" />
+  </head>
+  <body>
+    <div class="math">
+        <p style="color: white;font-size: 2rem;">chori karna paap nahi pakde jana paap hai ..
+            to pakde mat jao..
+        </p>
+      <div class="maths-nevigation">
+        <a href="#practicalno1"><button>bisection method</button></a
+        ><a href="#practicalno2"><button>newton raphson method</button></a
+        ><a href="#practicalno3"><button>Forward Difference table</button></a
+        ><a href="#practicalno4"><button>Newton Forward Difference Formula</button></a
+        ><a href="#practicalno5"><button>Guass Jordan Method</button></a><a href="#practicalno6"><button>Trapezoidal Rule</button></a
+        ><a href="#practicalno7"><button>Linear regression</button></a><a href="#practicalno8"><button>RK 2nd order method</button></a
+        ><a href="#practicalno9"><button>Eulers Method</button></a>
+      </div>
+      <div class="practicals-maths">
+        <div id="practicalno1">
+          <h1 class="maths-pra-header">Bisection Method</h1>
+          <pre class="practicalinfo">
+  
+                function root=bisection(f, a, b)
+                
+                tol=1.e-4;
+                maxit=50; 
+                Ea = 1; 
+                n = 1;
+                if (f(a(n))*f(b(n))) > 0 then
+                disp("root of the equation does not belong to the given interval "); 
+                abort;
+                else while (1)
+                c(n) = (a(n) + b(n)) / 2; 
+                if (f(a(n))*f(c(n))) < 0 then
+                b(n+1) = c(n); a(n+1) = a(n);
+                elseif (f(b(n))*f(c(n))) < 0 then
+                a(n+1) = c(n); b(n+1) = b(n);
+                 else
+                 breakend
+                if n>1 then
+                Ea(n) = 100 * abs((c(n)-c(n - 1)) / c(n)); 
+                end
+                
+                if Ea(n) < tol | n==maxit then 
+                break
+                end
+                
+                n = n + 1; 
+                end
+                end
+                 root = c(n);
+                endfunction
+                function f=f1(x)
+                f = x^3 - 2*x^2 - 2*x - 1; 
+                endfunction
+                a=2;
+                b=3;
+                root = bisection(f1,a,b);
+                root = round(root*10^5)/10^5;
+                disp(root,"root of the equation = ")
+                
+               
+            </pre
+          >
+        </div>
+        <div id="practicalno2">
+          <h1 class="maths-pra-header">newton raphson method</h1>
+          <pre class="practicalinfo">
+                function root=newtonraphson(f, df)
+                tol=1.e-4;
+                maxit=5; 
+                n = 1;
+                x(n) = 3;
+                while (1)
+                x(n+1) = x(n)-(f(x(n))/df(x(n))); 
+                 if n==maxit then
+                break
+                end
+                n = n + 1; 
+                end
+                 root = x(n+1);
+                endfunction
+                function f=f1(x)
+                f = x^3 - 2*x^2 - 2*x - 1; 
+                endfunction
+                 function df=df1(x)
+                df = 3*x^2 - 4*x - 2; 
+                endfunction
+                root = newtonraphson(f1,df1);
+                root = round(root*10^5)/10^5; 
+                disp(root,"root of the equation = ")</pre
+          >
+        </div>
+        <div id="practicalno3">
+          <h1 class="maths-pra-header">Forward Difference table</h1>
+          <pre class="practicalinfo">
+                x = 10:10:50;
+                y = [46 66 81 93 101];
+                n =length(x);
+                del = %nan *ones(n ,5) ; 
+                del (: ,1) = y';
+                for j = 2:6
+                for i = 1 : n -j +1
+                del (i ,j) = del (i +1 ,j -1) - del (i ,j -1) ;
+                end 
+                end
+                del (: ,1) = [ ];
+                del =round(del *10^3) /10^3; mprintf( "%5s %7s %8s %9s %8s 
+                %8s %8s" , ' x ' , ' y ' , ' dy ' , 'd2y ' , ' d3y ' , ' d4y ' , ' d5y ' )
+                 
+                disp([x' y' del])</pre
+          >
+        </div>
+        <div id="practicalno4">
+          <h1 class="maths-pra-header">Newton Forward Difference Formula</h1>
+          <pre class="practicalinfo">
+                x = 10:10:50;
+                y = [46 66 81 93 101]; 
+               n =length(x);
+               del = %nan *ones(n ,5) ;
+               
+               del (: ,1) = y'; 
+               for j = 2:5         
+               for i = 1:n -j +1 
+               del (i ,j) = del (i +1 ,j -1) - del (i ,j -1) ; 
+               end 
+               end
+               del =round( del *10^3) /10^3; 
+               mprintf( "%5s %7s %8s %9s %8s %8s " , ' x ' , ' y ' , ' dy ' , 'd2y ' , 
+               ' d3y ' , ' d4y ')
+               
+               disp([x' del])
+               del (: ,1) = []; 
+               X = 12;
+               h = x (2) - x (1) ; 
+               p = (X -x (1) ) / h; 
+               x0 = x (1) ;
+               y0 = y (1) ; 
+               dely0 = del (1 ,:) ; 
+               Y = y0 ;
+               for i = 1:length( dely0 )
+               t = 1;
+               for j = 1: i
+               t = t * (p -j +1) ; 
+               end
+               Y = Y + t* dely0 (i)/ factorial (i); 
+               end
+               disp(Y , "f ( 1 2 ) = " )
+            </pre
+          >
+        </div>
+        <div id="practicalno5">
+          <h1 class="maths-pra-header">Guass Jordan Method</h1>
+          <pre class="practicalinfo">
+                A = [1 21; 2 3 4; 4 3 2];
+                B = [8; 20; 16];
+                n =length(B);
+                Aug = [A , B ];
+               
+               for j = 1:n -1 for i = j +1: n
+               Aug (i ,j:n +1) = Aug (i ,j:n +1) - Aug (i ,j) / Aug(j ,j) * Aug (j ,j:n +1) ;
+                disp(Aug)
+               end end
+               
+               for j = n : -1:2
+               Aug (1: j -1 ,:) = Aug (1: j -1 ,:) - Aug (1: j -1 , j) / Aug(j ,j) * Aug (j ,:) 
+               ;
+               disp(Aug) 
+               end
+                for j =1: n
+               Aug (j ,:) = Aug (j ,:) / Aug (j ,j); 
+               end
+               
+               x = Aug (: , n +1) ;
+               
+               disp("The Solution of Given Equations are :")
+               disp(strcat([ "x = " ,string(x (1) ) ]) )
+               disp(strcat([ "y = " ,string(x (2) ) ]) )
+               disp(strcat([ "z = " ,string(x (3) ) ]) )</pre
+          >
+        </div>
+        <div id="practicalno6">
+          <h1 class="maths-pra-header">Trapezoidal Rule</h1>
+          <pre class="practicalinfo">
+                x =[0 0.25 0.5 0.75 1];
+
+                y =[1 0.9412 0.8 0.64 0.5];
+                h=x(2)-x(1) ;
+                n=length(x);
+                area =0;
+                for i =1 : n
+                if i ==1 | i == n then
+                area = area + y (i) 
+                else
+                area = area +2* y (i) 
+                end
+                end
+                area = area *( h /2) ;
+                printf( 'Value of Intergration By Trapezoidal Rule is = %f ' , area );</pre
+          >
+        </div>
+        <div id="practicalno7">
+          <h1 class="maths-pra-header">Linear regression</h1>
+          <pre class="practicalinfo">
+ 
+                x = [20 30 35 40 45 50];
+                y = [10 11 11.8 12.4 13.5 14.4];
+                 X = x .^2;
+                Y = y;
+                n =length(Y);
+                
+                M1 = [sum(Y);sum(X .* Y) ]; 
+                M2 = [n sum(X);sum(X) sum(X .^2) ]; 
+                A = M2 \ M1 ;
+                 a = A (1) ;
+                b = A (2) ;
+                
+                disp("Equation of regression can be expressed as Y = a + bX")
+                disp(round(a *10^4) /10^4 , "a =" )
+                disp(round(b *10^4) /10^4 , "b =" )</pre
+          >
+        </div>
+        <div id="practicalno8">
+          <h1 class="maths-pra-header">RK 2nd order method</h1>
+          <pre class="practicalinfo">
+ 
+                function [f]=fun1(x, y) f = (y/2) +(3*x); 
+                endfunction
+                 x0 = 0;
+                y0 = 1; h = 0.1; x = 0.2;
+                n = (x-x0)/h;
+            
+                function [f]=rk2(x, y) 
+                k1 = h* fun1 (x,y);
+                k2 = h* fun1 (x + h/2,y + k1); 
+                f = y + 1/2*(k1+k2);
+                
+                mprintf("\n y(%.2f) = %.4f",x+h,f) 
+                endfunction
+                 for i = 1:n
+                y = rk2 (x0 ,y0);
+                 x0 = x0 + h;
+                y0 = y;
+                y = round (y *10^5) /10^5; 
+                end</pre
+          >
+        </div>
+        <div id="practicalno9">
+          <h1 class="maths-pra-header">Eulers Method</h1>
+          <pre class="practicalinfo">
+                function [f]=dydx(x, y) 
+                f = (y-x) / (y+x);
+                
+                endfunction
+                y0 = 1; 
+                x0 = 0;
+                x = 0.4;
+                n = 5;
+                 h = (x-x0)/n;
+                xx = x0; 
+                y = y0; 
+                for i = 1:ny = y +h* dydx (xx ,y);
+                y = round (y *10^4) /10^4;
+                xx = xx + h; 
+                end
+                
+                disp (y,"y ( x = 0 . 4 ) = ")</pre
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

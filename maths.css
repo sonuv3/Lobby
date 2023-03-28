@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+.math {
+  width: 100vw;
+
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+.maths-nevigation {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  
+  gap: 5rem;
+}
+.maths-nevigation > a >button{
+    width: fit-content;
+    height: 3rem;
+    border-radius: 25px;
+    padding: 0.6rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: white;
+    background-color: blue;
+}
+.practicals-maths{
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+}
+.practicals-maths>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.maths-pra-header{
+    text-transform: uppercase;
+    background-color: grey;
+    font-size: 3rem;
+}
+.practicalinfo{
+    font-size: 18px;
+
+}
+
+
